@@ -46,8 +46,9 @@ variable "map_accounts" {
 
 variable "node_groups" {
   description = "Map of map of node groups to create."
-  type        = any
-  default     = {}
+  type        = map(object({}))
+
+  default = {}
 }
 
 variable "node_groups_defaults" {
@@ -126,3 +127,4 @@ variable "external_secrets_secret_paths" {
   type        = list
   default     = ["*"]
 }
+
