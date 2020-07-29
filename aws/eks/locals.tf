@@ -117,5 +117,5 @@ locals {
     }
   }
 
-  node_groups = length(var.node_groups) == 0 ? local.default_node_groups : var.node_groups
+  node_groups = length(var.node_groups) > 0 ? var.node_groups : local.default_node_groups
 }
