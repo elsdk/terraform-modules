@@ -46,7 +46,7 @@ variable "map_accounts" {
 
 variable "node_groups" {
   description = "Map of map of node groups to create."
-  type        = map(object({}))
+  type        = map(object())
   default = {}
 }
 
