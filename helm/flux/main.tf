@@ -8,18 +8,28 @@ resource "helm_release" "flux_helm_operator" {
   repository = local.helm_fluxcd_repository
   chart      = "helm-operator"
   namespace  = local.flux_helm_operator_settings["namespace"]
+  skip_crds  = true
 
-  dynamic "set" {
-    iterator = item
-    for_each = local.flux_helm_operator_settings
-
-    content {
-      name  = item.key
-      value = item.value
-    }
+  set {
+    name  = "createCRD"
+    value = local.flux_helm_operator_settings["createCRD"]
   }
 
-  skip_crds = true
+  set {
+    name  = "helm.versions"
+    value = local.flux_helm_operator_settings["helm.versions"]
+  }
+
+  set {
+    name  = "git.ssh.secretName"
+    value = local.flux_helm_operator_settings["git.ssh.secretName"]
+  }
+
+  set {
+    name  = "namespace"
+    value = local.flux_helm_operator_settings["namespace"]
+  }
+
 }
 
 resource "helm_release" "fluxcd" {

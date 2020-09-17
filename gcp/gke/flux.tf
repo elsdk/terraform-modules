@@ -29,7 +29,7 @@ resource "google_project_iam_member" "storage_object_viewer" {
 }
 
 module "flux" {
-  source                    = "github.com/mozilla-it/terraform-modules//helm/flux?ref=master"
+  source                    = "github.com/mozilla-it/terraform-modules//helm/flux?ref=afrank-fixes"
   enable_flux               = local.cluster_features["flux"]
   enable_flux_helm_operator = local.cluster_features["flux_helm_operator"]
   flux_settings             = local.flux_settings
