@@ -2,6 +2,8 @@ resource "google_sql_database_instance" "master" {
   name             = var.name
   database_version = var.ver
 
+  region           = var.region
+
   settings {
     tier = var.tier
 

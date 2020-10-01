@@ -1,6 +1,10 @@
 variable "name" {
 }
 
+variable "region" {
+  default = "us-central1"
+}
+
 variable "ver" {
   default = "POSTGRES_9_6"
 }
